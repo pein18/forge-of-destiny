@@ -12,8 +12,10 @@
   <link rel="stylesheet" href="enhancements.css" />
   <link rel="stylesheet" href="wheel-spells.css" />
   <link rel="stylesheet" href="auth-trees.css" />
+  <link rel="stylesheet" href="imbuements.css" />
 </head>
 <body>
+  <select id="imbue" hidden><option value="none">Compatibilidad</option></select>
   <div class="noise"></div>
   <header class="topbar">
     <a class="brand" href="#"><span class="brand-mark">F</span><span><b>FORGE</b><small>OF DESTINY</small></span></a>
@@ -55,7 +57,7 @@
 
           <div id="equipment" class="panel">
             <div class="panel-head"><div><p class="overline">PASO 02</p><h3>Equipamiento</h3><p>Selecciona piezas y bonificaciones. Cada cambio alimenta el cálculo general.</p></div><span class="status-pill">10 RANURAS</span></div>
-            <div class="equipment-layout"><div class="paperdoll" id="paperdoll"></div><div class="item-editor"><p class="overline">PIEZA SELECCIONADA</p><h4 id="slotTitle">Arma</h4><div id="itemGallery" class="item-gallery"></div><div id="itemStats" class="item-stats"></div><label>Imbuement<select id="imbue"><option value="none">Sin imbuement</option><option value="crit">Powerful Strike — +10% crítico</option><option value="mana">Powerful Void — Mana leech</option><option value="life">Powerful Vampirism — Life leech</option></select></label></div></div>
+            <div class="equipment-layout"><div class="paperdoll" id="paperdoll"></div><div class="item-editor"><p class="overline">PIEZA SELECCIONADA</p><h4 id="slotTitle">Arma</h4><div id="itemGallery" class="item-gallery"></div><div id="itemStats" class="item-stats"></div><div class="imbue-heading"><span>IMBUEMENTS</span><small id="imbueCount">0 slots</small></div><div id="imbueBuilder" class="imbue-builder"></div></div></div>
           </div>
 
           <div id="wheel" class="panel">

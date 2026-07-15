@@ -4,4 +4,6 @@ Thumbs.db
 .env.*
 config.js
 node_modules/
+.tools/
+data/tibiawiki.db
 dist/
