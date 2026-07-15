@@ -9,6 +9,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
+  <link rel="stylesheet" href="enhancements.css" />
 </head>
 <body>
   <div class="noise"></div>
@@ -52,22 +53,22 @@
 
           <div id="equipment" class="panel">
             <div class="panel-head"><div><p class="overline">PASO 02</p><h3>Equipamiento</h3><p>Selecciona piezas y bonificaciones. Cada cambio alimenta el cálculo general.</p></div><span class="status-pill">10 RANURAS</span></div>
-            <div class="equipment-layout"><div class="paperdoll" id="paperdoll"></div><div class="item-editor"><p class="overline">PIEZA SELECCIONADA</p><h4 id="slotTitle">Arma</h4><label>Objeto<select id="itemSelect"></select></label><div id="itemStats" class="item-stats"></div><label>Imbuement<select id="imbue"><option value="none">Sin imbuement</option><option value="crit">Powerful Strike — +10% crítico</option><option value="mana">Powerful Void — Mana leech</option><option value="life">Powerful Vampirism — Life leech</option></select></label></div></div>
+            <div class="equipment-layout"><div class="paperdoll" id="paperdoll"></div><div class="item-editor"><p class="overline">PIEZA SELECCIONADA</p><h4 id="slotTitle">Arma</h4><div id="itemGallery" class="item-gallery"></div><div id="itemStats" class="item-stats"></div><label>Imbuement<select id="imbue"><option value="none">Sin imbuement</option><option value="crit">Powerful Strike — +10% crítico</option><option value="mana">Powerful Void — Mana leech</option><option value="life">Powerful Vampirism — Life leech</option></select></label></div></div>
           </div>
 
           <div id="wheel" class="panel">
             <div class="panel-head"><div><p class="overline">PASO 03</p><h3>Wheel of Destiny</h3><p>Distribuye puntos entre dominios. Esta versión resume los efectos para planificación rápida.</p></div><span id="wheelAvailable" class="status-pill">30 DISPONIBLES</span></div>
-            <div class="wheel-layout"><div class="destiny-wheel" id="destinyWheel"><div class="wheel-core"><b id="wheelTotal">420</b><small>PUNTOS</small></div></div><div class="domains" id="domains"></div></div>
+            <div class="wheel-layout"><div class="destiny-wheel" id="destinyWheel"><div class="wheel-segments" id="wheelSegments"></div><div class="wheel-core"><b id="wheelTotal">420</b><small>PUNTOS</small></div></div><div><div class="data-source"><span>API</span> Layout por vocación · ByteWizards/TibiaWiki</div><div class="domains" id="domains"></div></div></div>
           </div>
 
           <div id="proficiency" class="panel">
             <div class="panel-head"><div><p class="overline">PASO 04</p><h3>Weapon Proficiency</h3><p>Escoge una ventaja activa por nivel de dominio del arma.</p></div><span class="status-pill">NIVEL 6</span></div>
-            <label class="wide-label">Arma vinculada<select id="weaponType"><option>Espada de dos manos</option><option>Hacha de dos manos</option><option>Club de dos manos</option></select></label><div class="proficiency-track" id="proficiencyTrack"></div>
+            <div class="prof-toolbar"><label>Familia de arma<select id="weaponType"></select></label><label>Buscar arma<input id="weaponSearch" placeholder="Ej. sanguine, soul..." /></label></div><div class="data-source"><span>WIKI</span> Armas actuales por vocación · elige la ideal para esta build</div><div id="weaponGallery" class="weapon-gallery"></div><div id="selectedWeapon" class="selected-weapon"></div><div class="proficiency-track" id="proficiencyTrack"></div>
           </div>
 
           <div id="rotation" class="panel">
             <div class="panel-head"><div><p class="overline">PASO 05</p><h3>Rotación de hechizos</h3><p>Ordena tus habilidades y revisa el daño estimado por ciclo.</p></div><button id="addSpell" class="secondary-btn">+ Añadir hechizo</button></div>
-            <div class="rotation-list" id="rotationList"></div>
+            <div id="spellLibrary" class="spell-library"></div><div class="rotation-list" id="rotationList"></div>
           </div>
         </section>
 
