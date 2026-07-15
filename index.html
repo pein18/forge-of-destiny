@@ -1,0 +1,94 @@
+<!doctype html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Forge of Destiny — planificador de builds para Tibia." />
+  <title>Forge of Destiny — Tibia Build Planner</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="noise"></div>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">F</span><span><b>FORGE</b><small>OF DESTINY</small></span></a>
+    <nav><a class="active" href="#builder">Creador</a><a href="#community">Builds</a><a href="#ranking">Ranking</a><a href="#guides">Guías</a></nav>
+    <div class="header-actions"><button class="icon-btn" aria-label="Cambiar idioma">ES</button><button id="loginBtn" class="login-btn">Iniciar sesión</button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow">THEORYCRAFTING PARA TIBIA</p>
+        <h1>Forja tu destino.<br><em>Domina tu vocación.</em></h1>
+        <p>Diseña, calcula y comparte builds completas. Cada pieza, cada hechizo y cada punto de destino, reunidos en un solo lugar.</p>
+        <div class="hero-actions"><a class="primary-btn" href="#builder">Crear una build <span>→</span></a><a class="text-btn" href="#community">Explorar builds <span>↗</span></a></div>
+      </div>
+      <div class="hero-art" aria-hidden="true"><div class="moon"></div><div class="rune r1">ᛉ</div><div class="rune r2">ᛟ</div><div class="rune r3">ᛏ</div><div class="sword">†</div></div>
+    </section>
+
+    <section id="builder" class="builder-wrap">
+      <div class="section-heading"><div><p class="eyebrow">ARSENAL DE ESTRATEGIA</p><h2>Constructor de builds</h2></div><div class="builder-actions"><span id="saveStatus">Cambios sin guardar</span><button id="saveBtn" class="secondary-btn">Guardar build</button><button id="publishBtn" class="primary-btn small">Publicar</button></div></div>
+
+      <div class="builder-shell">
+        <aside class="steps">
+          <div class="build-title"><label>Nombre de la build</label><input id="buildName" value="Cacería solitaria — Roshamuul" /></div>
+          <button class="step active" data-panel="identity"><span>01</span><div><b>Personaje</b><small>Vocación y nivel</small></div><i>✓</i></button>
+          <button class="step" data-panel="equipment"><span>02</span><div><b>Equipamiento</b><small>10 ranuras equipadas</small></div><i>›</i></button>
+          <button class="step" data-panel="wheel"><span>03</span><div><b>Wheel of Destiny</b><small id="wheelStep">420 / 450 puntos</small></div><i>›</i></button>
+          <button class="step" data-panel="proficiency"><span>04</span><div><b>Proficiencia</b><small>Arma y ventajas</small></div><i>›</i></button>
+          <button class="step" data-panel="rotation"><span>05</span><div><b>Rotación</b><small id="rotationStep">5 hechizos</small></div><i>›</i></button>
+          <div class="completion"><div><span>Progreso</span><b>84%</b></div><div class="progress"><i></i></div><small>Completa todos los módulos para mejorar la precisión.</small></div>
+        </aside>
+
+        <section class="workspace">
+          <div id="identity" class="panel active">
+            <div class="panel-head"><div><p class="overline">PASO 01</p><h3>Elige tu vocación</h3><p>Define la base de tu personaje para ajustar las estadísticas y habilidades disponibles.</p></div><span class="status-pill">CONFIGURADO</span></div>
+            <div class="vocations" id="vocations"></div>
+            <div class="form-grid"><label>Nivel del personaje<input id="level" type="number" value="500" min="51" max="2000"></label><label>Skill principal<input id="skill" type="number" value="125" min="10" max="200"></label><label>Magic level<input id="magic" type="number" value="13" min="0" max="200"></label><label>Escenario<select id="scenario"><option value="aoe">Cacería — Área</option><option value="single">Boss — Objetivo único</option><option value="survival">Supervivencia</option></select></label></div>
+          </div>
+
+          <div id="equipment" class="panel">
+            <div class="panel-head"><div><p class="overline">PASO 02</p><h3>Equipamiento</h3><p>Selecciona piezas y bonificaciones. Cada cambio alimenta el cálculo general.</p></div><span class="status-pill">10 RANURAS</span></div>
+            <div class="equipment-layout"><div class="paperdoll" id="paperdoll"></div><div class="item-editor"><p class="overline">PIEZA SELECCIONADA</p><h4 id="slotTitle">Arma</h4><label>Objeto<select id="itemSelect"></select></label><div id="itemStats" class="item-stats"></div><label>Imbuement<select id="imbue"><option value="none">Sin imbuement</option><option value="crit">Powerful Strike — +10% crítico</option><option value="mana">Powerful Void — Mana leech</option><option value="life">Powerful Vampirism — Life leech</option></select></label></div></div>
+          </div>
+
+          <div id="wheel" class="panel">
+            <div class="panel-head"><div><p class="overline">PASO 03</p><h3>Wheel of Destiny</h3><p>Distribuye puntos entre dominios. Esta versión resume los efectos para planificación rápida.</p></div><span id="wheelAvailable" class="status-pill">30 DISPONIBLES</span></div>
+            <div class="wheel-layout"><div class="destiny-wheel" id="destinyWheel"><div class="wheel-core"><b id="wheelTotal">420</b><small>PUNTOS</small></div></div><div class="domains" id="domains"></div></div>
+          </div>
+
+          <div id="proficiency" class="panel">
+            <div class="panel-head"><div><p class="overline">PASO 04</p><h3>Weapon Proficiency</h3><p>Escoge una ventaja activa por nivel de dominio del arma.</p></div><span class="status-pill">NIVEL 6</span></div>
+            <label class="wide-label">Arma vinculada<select id="weaponType"><option>Espada de dos manos</option><option>Hacha de dos manos</option><option>Club de dos manos</option></select></label><div class="proficiency-track" id="proficiencyTrack"></div>
+          </div>
+
+          <div id="rotation" class="panel">
+            <div class="panel-head"><div><p class="overline">PASO 05</p><h3>Rotación de hechizos</h3><p>Ordena tus habilidades y revisa el daño estimado por ciclo.</p></div><button id="addSpell" class="secondary-btn">+ Añadir hechizo</button></div>
+            <div class="rotation-list" id="rotationList"></div>
+          </div>
+        </section>
+
+        <aside class="summary">
+          <div class="summary-head"><div><p class="overline">RESUMEN EN VIVO</p><h3 id="summaryVocation">Elite Knight <span>• Nv. 500</span></h3></div><span class="live-dot">EN VIVO</span></div>
+          <div class="power"><span>PUNTUACIÓN DE BUILD</span><b id="score">8,742</b><small id="scoreDelta">+12.4% vs. base</small></div>
+          <div class="stat-section"><h4>Daño estimado</h4><div class="big-stat"><span>Daño por ciclo</span><b id="cycleDamage">7,846</b></div><div class="stat-row"><span>DPS sostenido</span><b id="dps">1,962</b></div><div class="stat-row"><span>Daño crítico</span><b id="critDamage">+50%</b></div><div class="stat-row"><span>Prob. crítico</span><b id="critChance">10%</b></div></div>
+          <div class="stat-section"><h4>Estadísticas</h4><div class="stats-grid"><div><span>HP</span><b id="hp">7,645</b></div><div><span>Mana</span><b id="mana">2,495</b></div><div><span>Skill</span><b id="skillOut">129</b></div><div><span>Mitigación</span><b id="mitigation">16.8%</b></div></div></div>
+          <div class="element-bars"><h4>Perfil elemental</h4><div><span>Físico</span><i><b style="width:72%"></b></i><em>72%</em></div><div><span>Hielo</span><i><b style="width:34%"></b></i><em>34%</em></div><div><span>Tierra</span><i><b style="width:21%"></b></i><em>21%</em></div></div>
+          <p class="disclaimer">⌁ Estimación comparativa. Las fórmulas se refinarán con datos verificados del juego.</p>
+        </aside>
+      </div>
+    </section>
+
+    <section id="community" class="community"><div class="section-heading"><div><p class="eyebrow">CONOCIMIENTO DE LA COMUNIDAD</p><h2>Builds destacadas</h2></div><a class="text-btn" href="#">Ver todas →</a></div><div id="buildCards" class="build-cards"></div></section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">F</span><span><b>FORGE</b><small>OF DESTINY</small></span></a><p>Herramienta comunitaria no afiliada con CipSoft GmbH.</p><span>© 2026 Forge of Destiny</span></footer>
+
+  <dialog id="authModal"><button class="close-modal">×</button><p class="eyebrow">TU ARSENAL PERSONAL</p><h2>Inicia sesión</h2><p>Guarda tus builds, compártelas con la comunidad y continúa donde lo dejaste.</p><button class="social-login">G&nbsp;&nbsp; Continuar con Google</button><div class="divider"><span>o usa tu correo</span></div><label>Correo electrónico<input type="email" placeholder="nombre@correo.com"></label><label>Contraseña<input type="password" placeholder="••••••••"></label><button id="mockLogin" class="primary-btn full">Entrar</button><small>Demo funcional: no se enviarán datos.</small></dialog>
+  <div id="toast" class="toast"></div>
+  <script src="app.js"></script>
+</body>
+</html>
