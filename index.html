@@ -11,6 +11,7 @@
   <link rel="stylesheet" href="styles.css" />
   <link rel="stylesheet" href="enhancements.css" />
   <link rel="stylesheet" href="wheel-spells.css" />
+  <link rel="stylesheet" href="auth-trees.css" />
 </head>
 <body>
   <div class="noise"></div>
@@ -89,7 +90,7 @@
 
   <footer><a class="brand" href="#"><span class="brand-mark">F</span><span><b>FORGE</b><small>OF DESTINY</small></span></a><p>Herramienta comunitaria no afiliada con CipSoft GmbH.</p><span>© 2026 Forge of Destiny</span></footer>
 
-  <dialog id="authModal"><button class="close-modal">×</button><p class="eyebrow">TU ARSENAL PERSONAL</p><h2>Inicia sesión</h2><p>Guarda tus builds, compártelas con la comunidad y continúa donde lo dejaste.</p><button class="social-login">G&nbsp;&nbsp; Continuar con Google</button><div class="divider"><span>o usa tu correo</span></div><label>Correo electrónico<input type="email" placeholder="nombre@correo.com"></label><label>Contraseña<input type="password" placeholder="••••••••"></label><button id="mockLogin" class="primary-btn full">Entrar</button><small>Demo funcional: no se enviarán datos.</small></dialog>
+  <dialog id="authModal"><button class="close-modal">×</button><p class="eyebrow">TU ARSENAL PERSONAL</p><div class="auth-tabs"><button id="loginTab" class="active">Iniciar sesión</button><button id="registerTab">Crear cuenta</button></div><h2 id="authTitle">Bienvenido de vuelta</h2><p id="authDescription">Accede a tus builds guardadas y continúa donde lo dejaste.</p><label id="usernameField" hidden>Nombre de usuario<input id="authUsername" autocomplete="username" placeholder="Tu nombre en Forge"></label><label>Correo electrónico<input id="authEmail" type="email" autocomplete="email" placeholder="nombre@correo.com"></label><label>Contraseña<input id="authPassword" type="password" autocomplete="current-password" minlength="8" placeholder="Mínimo 8 caracteres"></label><button id="authSubmit" class="primary-btn full">Entrar</button><p id="authMessage" class="auth-message"></p><small>Al registrarte aceptas las normas de la comunidad.</small></dialog>
   <div id="toast" class="toast"></div>
   <script src="db.js"></script>
   <script src="app.js"></script>
