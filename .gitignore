@@ -2,6 +2,6 @@
 Thumbs.db
 .env
 .env.*
+config.js
 node_modules/
 dist/
-
